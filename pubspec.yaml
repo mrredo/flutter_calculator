@@ -7,6 +7,7 @@ environment:
   sdk: '>=3.3.2 <4.0.0'
 
 dependencies:
+  flutter_svg: ^2.0.10+1
   flutter:
     sdk: flutter
 
@@ -19,3 +20,4 @@ flutter:
   uses-material-design: true
   assets:
     - assets/main_page_image.svg
+    - assets/google.svg
