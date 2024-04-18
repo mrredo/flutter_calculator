@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_calculator/pages/bmi.dart';
 import 'package:flutter_calculator/pages/calculator.dart';
 import 'package:flutter_calculator/pages/main.dart';
 
@@ -36,6 +37,7 @@ class MainApp extends StatelessWidget {
       routes: {
         "/": (context) => const MainPage(),
         "/kalkulators": (context) => const CalculatorMain(),
+        "/kalkulators/bmi": (context) => const BMIMainPage(),
       },
       initialRoute: "/",
     );

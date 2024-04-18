@@ -21,3 +21,4 @@ flutter:
   assets:
     - assets/main_page_image.svg
     - assets/google.svg
+    - assets/bmi.svg
