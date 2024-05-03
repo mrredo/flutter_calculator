@@ -14,6 +14,8 @@ class CalculatorMain extends StatelessWidget {
       body: Column(
         children: [
           CalculatorMainFul(name: "BMI kalkulators", path: "/kalkulators/bmi", imageURL: "bmi.svg",),
+          CalculatorMainFul(name: "Garuma kalkulators", path: "/kalkulators/garums", imageURL: "bmi.svg",),
+
         ],
       ),
     );
