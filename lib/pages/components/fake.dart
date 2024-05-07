@@ -1,20 +1,30 @@
 import 'package:flutter/material.dart';
 
 class DropdownWidget extends StatefulWidget {
-  DropdownWidget({super.key, required this.values, required this.value});
-  List<String> values;
-  String value;
+  DropdownWidget({Key? key, required this.values, required this.value})
+      : super(key: key);
+
+  final List<String> values;
+  late String value;
+
   @override
   State<DropdownWidget> createState() => _DropdownButtonExampleState();
+
+  String getSelectedValue() {
+    return value;
+  }
 }
+
 class _DropdownButtonExampleState extends State<DropdownWidget> {
-   late String dropdownValue;
-    @override
+  late String dropdownValue;
+
+  @override
   void initState() {
     super.initState();
     dropdownValue = widget.values.first; // Initialize in initState
     widget.value = dropdownValue;
   }
+
   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(
