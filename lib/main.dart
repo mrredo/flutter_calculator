@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_calculator/pages/bmi.dart';
 import 'package:flutter_calculator/pages/calculator.dart';
 import 'package:flutter_calculator/pages/components/fake.dart';
-import 'package:flutter_calculator/pages/garums.dart';
+import 'package:flutter_calculator/pages/kalkulators/garums.dart';
+import 'package:flutter_calculator/pages/kalkulators/platiba.dart';
+import 'package:flutter_calculator/pages/kalkulators/tilpums.dart';
 import 'package:flutter_calculator/pages/main.dart';
 
 void main() {
@@ -41,6 +43,9 @@ class MainApp extends StatelessWidget {
         "/kalkulators": (context) => const CalculatorMain(),
         "/kalkulators/bmi": (context) => const BMIMainPage(),
         "/kalkulators/garums": (context) => const GarumsMain(),
+        "/kalkulators/platiba": (context) => const PlatibaMain(),
+        "/kalkulators/tilpums": (context) => const TilpumsMain(),
+
       },
       initialRoute: "/",
     );

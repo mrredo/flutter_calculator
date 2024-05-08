@@ -2,8 +2,8 @@ class Conversion {
   Conversion(
       {required this.conversionTo,
       required this.conversionFrom,
-      required this.name});
-  String name;
+      this.name});
+  String? name;
   double Function(double a) conversionTo;
   double Function(double a) conversionFrom;
 }

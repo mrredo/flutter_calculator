@@ -7,7 +7,8 @@ class InputWidget extends StatefulWidget {
       required this.value,
       required this.hintText,
       required this.labelText,
-      this.disabled, this.onChanged})
+      this.disabled,
+      this.onChanged})
       : super(key: key);
   String hintText;
   String labelText;
@@ -28,24 +29,26 @@ class _InputButtonExampleState extends State<InputWidget> {
   // void initState() {
   //   super.initState();
   // }
-
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-        onChanged: widget.onChanged,
-        enabled: widget.disabled != null ? !widget.disabled! : true,
-        style: const TextStyle(
-          fontSize: 20,
-        ),
-        controller: widget.value,
-        keyboardType: TextInputType.number,
-        inputFormatters: <TextInputFormatter>[
-          FilteringTextInputFormatter.digitsOnly
-        ],
-        decoration: InputDecoration(
-            labelText: widget.labelText,
-            hintText: widget.hintText,
-            // icon: const Icon(Icons.calculate)
-            ));
+return TextFormField(
+  onChanged: widget.onChanged,
+  enabled: widget.disabled != null ? !widget.disabled! : true,
+  style: const TextStyle(
+    fontSize: 20,
+  ),
+  controller: widget.value,
+  keyboardType: TextInputType.number,
+  inputFormatters: <TextInputFormatter>[
+    FilteringTextInputFormatter.allow(RegExp(r'[0-9.]')
+)
+  ],
+  decoration: InputDecoration(
+    labelText: widget.labelText,
+    hintText: widget.hintText,
+    // icon: const Icon(Icons.calculate)
+  ),
+);
+
   }
 }
