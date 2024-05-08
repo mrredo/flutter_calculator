@@ -99,8 +99,8 @@ class GarumsStatefulState extends State<GarumsStateful> {
     toCon = TextEditingController();
     toCon.text = "1";
 
-    fromDropdown = DropdownWidget(values: names, value: from);
-    toDropdown = DropdownWidget(values: names, value: to);
+    fromDropdown = DropdownWidget(values: names, value: from, onChanged: (str) => handleClick(),);
+    toDropdown = DropdownWidget(values: names, value: to, onChanged: (str) => handleClick(),);
     super.initState();
   }
 
@@ -117,9 +117,13 @@ class GarumsStatefulState extends State<GarumsStateful> {
   }
 
   void handleClick() {
-    toCon.text =
-        ((convert(double.parse(fromCon.text)) * 100000000000).round() / 100000000000)
-            .toString();
+    if (fromCon.text == "") {
+       toCon.text = "";
+       return;
+       }
+    toCon.text = ((convert(double.parse(fromCon.text)) * 100000000000).round() /
+            100000000000)
+        .toString();
   }
 
   @override
@@ -144,13 +148,20 @@ class GarumsStatefulState extends State<GarumsStateful> {
                   ),
                   SizedBox(
                     width: 80,
-                    height: 50,
+                    height: 65,
                     child: fromDropdown,
                   ),
                   SizedBox(
                     width: 200,
-                    height: 100,
+                    height: 80,
                     child: InputWidget(
+                      onChanged: (str) {
+                        fromCon.text = str;
+                        fromCon.selection = TextSelection.fromPosition(
+                          TextPosition(offset: fromCon.text.length),
+                        );
+                        handleClick();
+                      },
                       value: fromCon,
                       hintText: "",
                       labelText: "",
@@ -171,7 +182,7 @@ class GarumsStatefulState extends State<GarumsStateful> {
                   ),
                   SizedBox(
                     width: 80,
-                    height: 50,
+                    height: 65,
                     child: toDropdown,
                   ),
                   SizedBox(

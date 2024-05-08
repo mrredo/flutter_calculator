@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -8,12 +7,12 @@ class InputWidget extends StatefulWidget {
       required this.value,
       required this.hintText,
       required this.labelText,
-      this.disabled
-      })
+      this.disabled, this.onChanged})
       : super(key: key);
   String hintText;
   String labelText;
   bool? disabled;
+  void Function(String)? onChanged;
   late TextEditingController value;
 
   @override
@@ -33,7 +32,8 @@ class _InputButtonExampleState extends State<InputWidget> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      enabled: widget.disabled != null? !widget.disabled! : true,
+        onChanged: widget.onChanged,
+        enabled: widget.disabled != null ? !widget.disabled! : true,
         style: const TextStyle(
           fontSize: 20,
         ),
@@ -45,6 +45,7 @@ class _InputButtonExampleState extends State<InputWidget> {
         decoration: InputDecoration(
             labelText: widget.labelText,
             hintText: widget.hintText,
-            icon: const Icon(Icons.calculate)));
+            // icon: const Icon(Icons.calculate)
+            ));
   }
 }

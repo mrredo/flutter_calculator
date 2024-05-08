@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 class DropdownWidget extends StatefulWidget {
-  DropdownWidget({Key? key, required this.values, required this.value})
+  DropdownWidget(
+      {Key? key, required this.values, required this.value, this.onChanged})
       : super(key: key);
 
   final List<String> values;
   late String value;
+  void Function(String?)? onChanged;
 
   @override
   State<DropdownWidget> createState() => _DropdownButtonExampleState();
@@ -42,6 +44,7 @@ class _DropdownButtonExampleState extends State<DropdownWidget> {
           dropdownValue = value!;
           widget.value = value;
         });
+        if (widget.onChanged != null) widget.onChanged!(value);
       },
       items: widget.values.map<DropdownMenuItem<String>>((String value) {
         return DropdownMenuItem<String>(
